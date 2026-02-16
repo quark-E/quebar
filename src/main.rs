@@ -43,7 +43,7 @@ fn main() -> eframe::Result<()> {
   };
 
   eframe::run_native(
-    "QueBar",
+    "Quebar",
     native_options,
     Box::new(|cc| {
       let ctx = cc.egui_ctx.clone();
@@ -181,7 +181,7 @@ impl eframe::App for MyTaskbar {
           ui.visuals_mut().override_text_color = Some(egui::Color32::WHITE);
 
           ui.separator();
-          ui.label("🐓 QueBar");
+          ui.label("🐓 Quebar");
           ui.separator();
           for ws in &self.workspaces {
             let (text_color, bg_color) = match (ws.focused, ws.visible) {
