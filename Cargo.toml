@@ -1,0 +1,21 @@
+[package]
+name = "quebar"
+version = "0.1.0"
+edition = "2024"
+
+[profile.release]
+opt-level = "z"     # Optimize for size (often reduces cache pressure/RAM)
+lto = true          # Link Time Optimization (removes unused code)
+codegen-units = 1   # Slower compile, but better optimization
+panic = "abort"     # Removes stack unwinding code (smaller binary)
+strip = true        # Removes debug symbols
+
+[dependencies]
+battery = "0.7.8"
+chrono = "0.4.43"
+eframe = "0.33.3"
+egui = "0.33.3"
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = "1.0.149"
+tungstenite = "0.28.0"
+url = "2.5.8"
