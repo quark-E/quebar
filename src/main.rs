@@ -183,9 +183,7 @@ impl eframe::App for MyTaskbar {
           ui.separator();
           ui.label("🐓 QueBar");
           ui.separator();
-          // In your update loop:
           for ws in &self.workspaces {
-            // Update to use the new fields .focused and .visible
             let (text_color, bg_color) = match (ws.focused, ws.visible) {
               (true, _) => (egui::Color32::WHITE, egui::Color32::from_rgb(70, 70, 180)),
               (false, true) => (egui::Color32::LIGHT_GRAY, egui::Color32::from_black_alpha(80)),
@@ -194,7 +192,7 @@ impl eframe::App for MyTaskbar {
 
             let _resp = egui::Frame::NONE
               .fill(bg_color)
-              .corner_radius(4) // FIXED: Replaced .rounding(4.0)
+              .corner_radius(4)
               .inner_margin(egui::Margin::symmetric(10, 2))
               .show(ui, |ui| ui.colored_label(text_color, &ws.name))
               .response;
